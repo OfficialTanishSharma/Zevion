@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-root: #141110;
+    --bg-main: #1a1614;
+    --bg-surface: #201b18;
+    --bg-elevated: #262019;
+    --bg-input: #2a231d;
+    --border-subtle: rgba(255, 245, 235, 0.07);
+    --border-strong: rgba(255, 245, 235, 0.12);
+    --accent: #f59e0b;
+    --accent-2: #fb7185;
+    --accent-grad: linear-gradient(135deg, #f59e0b 0%, #fb923c 55%, #f43f5e 100%);
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--bg-root);
+    color: #f4f4f5;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ---- Refined Custom Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+  background-clip: content-box;
+}
+
+/* ---- Glassmorphism ---- */
+.glass-panel {
+  background: rgba(20, 22, 28, 0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(29, 32, 39, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ---- Glow helpers ---- */
+.glow-emerald {
+  box-shadow: 0 0 28px -6px rgba(245, 158, 11, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 28px -6px rgba(251, 146, 60, 0.38);
+}
+
+.glow-danger {
+  box-shadow: 0 0 28px -6px rgba(239, 68, 68, 0.42);
+}
+
+/* ---- Accent gradient text / surfaces ---- */
+.text-gradient {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.bg-accent-gradient {
+  background: var(--accent-grad);
+}
+
+/* ---- Windows 11 Mica effect ---- */
+.win11-mica {
+  background: rgba(20, 24, 30, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.win11-window {
+  background: #201b18;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ---- Animations ---- */
+@keyframes flash {
+  0% { opacity: 0.9; background-color: white; }
+  100% { opacity: 0; background-color: transparent; }
+}
+
+.animate-flash {
+  animation: flash 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeInUp 0.25s ease-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* ---- Code font ---- */
+code, pre {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---- Focus ring (accessible, subtle) ---- */
+:focus-visible {
+  outline: 2px solid rgba(16, 185, 129, 0.5);
+  outline-offset: 1px;
+}

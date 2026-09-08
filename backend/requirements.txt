@@ -1,0 +1,21 @@
+# Zevion Backend Dependencies
+# Core (required)
+fastapi
+uvicorn[standard]
+pydantic
+
+# Desktop automation (required for full features)
+requests
+psutil
+
+# Optional — desktop automation on real OS (auto-detected, graceful fallback if missing)
+pyautogui
+send2trash
+pillow
+pyperclip
+
+# Optional — native desktop window (Windows/Mac/Linux)
+pywebview
+
+# Optional — Windows native automation (Windows only)
+# pywin32
